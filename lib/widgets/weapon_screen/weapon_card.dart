@@ -73,7 +73,7 @@ class WeaponCard extends StatelessWidget {
                     ),
                     // Weapon Category
                     Text(
-                      weapon.shopData!.category!,
+                      weapon.shopData?.category ?? '',
                       style: TextStyle(
                           color: HexColor('#0D1927'), fontSize: 10.sp),
                     ),

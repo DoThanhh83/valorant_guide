@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_void_to_null
 
+import 'package:valoratn_gui/models/skins.dart';
+
 class Weapon {
   String? uuid;
   String? displayName;
@@ -10,6 +12,7 @@ class Weapon {
   String? assetPath;
   WeaponStats? weaponStats;
   ShopData? shopData;
+  List<Skins>? skins;
 
   Weapon(
       {this.uuid,
@@ -20,6 +23,7 @@ class Weapon {
       this.killStreamIcon,
       this.assetPath,
       this.weaponStats,
+        this.skins,
       this.shopData});
 
   Weapon.fromJson(Map<String, dynamic> json) {
@@ -35,6 +39,12 @@ class Weapon {
         : null;
     shopData =
         json['shopData'] != null ? ShopData.fromJson(json['shopData']) : null;
+    if (json['skins'] != null) {
+      skins = <Skins>[];
+      json['skins'].forEach((v) {
+        skins!.add( Skins.fromJson(v));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -51,6 +61,9 @@ class Weapon {
     }
     if (shopData != null) {
       data['shopData'] = shopData!.toJson();
+    }
+    if (skins != null) {
+      data['skins'] = skins!.map((v) => v.toJson()).toList();
     }
     return data;
   }

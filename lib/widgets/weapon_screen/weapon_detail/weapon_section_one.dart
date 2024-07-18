@@ -163,7 +163,7 @@ class WeaponSectionOne extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(width: 50.w),
+                  SizedBox(width: 30.w),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

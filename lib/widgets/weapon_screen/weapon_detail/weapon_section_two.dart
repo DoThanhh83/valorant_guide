@@ -38,9 +38,9 @@ class WeaponSectionTwo extends StatelessWidget {
                     // Damage Text
                     Padding(
                       padding: EdgeInsets.only(top: 15.h, right: 150.w),
-                      child: Column(
+                      child: const Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children: [
                           Text(
                             'DAMAGE',
                             style: TextStyle(

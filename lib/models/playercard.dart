@@ -25,16 +25,16 @@ class PlayerCard {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["uuid"] = uuid;
-    _data["displayName"] = displayName;
-    _data["isHiddenIfNotOwned"] = isHiddenIfNotOwned;
-    _data["themeUuid"] = themeUuid;
-    _data["displayIcon"] = displayIcon;
-    _data["smallArt"] = smallArt;
-    _data["wideArt"] = wideArt;
-    _data["largeArt"] = largeArt;
-    _data["assetPath"] = assetPath;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["uuid"] = uuid;
+    data["displayName"] = displayName;
+    data["isHiddenIfNotOwned"] = isHiddenIfNotOwned;
+    data["themeUuid"] = themeUuid;
+    data["displayIcon"] = displayIcon;
+    data["smallArt"] = smallArt;
+    data["wideArt"] = wideArt;
+    data["largeArt"] = largeArt;
+    data["assetPath"] = assetPath;
+    return data;
   }
 }

@@ -114,7 +114,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
               inactiveColorPrimary: CupertinoColors.inactiveGray,
               activeColorSecondary: Colors.white,
               icon: const Icon(Icons.image),
-              title: 'Spray'),
+              title: 'PlayerCard'),
         ],
       ),
     );

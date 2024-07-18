@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:valoratn_gui/widgets/playercard_screen/player_card.dart';
-import 'package:valoratn_gui/widgets/rank_screen/ranks_card.dart';
 
 class PlayerCardList extends StatelessWidget {
   PlayerCardList({Key? key, required this.snapshot, this.isGrid = true})

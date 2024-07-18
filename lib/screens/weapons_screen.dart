@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:valoratn_gui/models/weapon.dart';
+import 'package:valoratn_gui/network/skins_client.dart';
 import 'package:valoratn_gui/network/weapon_client.dart';
 import 'package:valoratn_gui/widgets/weapon_screen/weapon_list.dart';
 
 import '../constants/app_colors.dart';
+import '../models/skins.dart';
 
 class WeaponScreen extends StatefulWidget {
   const WeaponScreen({Key? key}) : super(key: key);
@@ -19,10 +21,14 @@ class _WeaponScreenState extends State<WeaponScreen> {
 
   // Weapons List
   late Future<Iterable<Weapon>> _weapons;
+
+  final SkinsClient _skinsClient = SkinsClient();
+  late Future<Iterable<Skins>> _skins;
   @override
   void initState() {
     _weapons = _weaponsClient.getWeapons();
     super.initState();
+    _skins = _skinsClient.getSkins();
   }
 
   @override

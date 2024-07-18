@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:valoratn_gui/models/playercard.dart';
-import 'package:valoratn_gui/models/weapon.dart';
 import 'package:valoratn_gui/network/playercard_client.dart';
-import 'package:valoratn_gui/network/weapon_client.dart';
 import 'package:valoratn_gui/widgets/playercard_screen/playercard_list.dart';
-import 'package:valoratn_gui/widgets/weapon_screen/weapon_list.dart';
 
 import '../constants/app_colors.dart';
 

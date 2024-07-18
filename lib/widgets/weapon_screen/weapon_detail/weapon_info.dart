@@ -2,10 +2,12 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:valoratn_gui/models/weapon.dart';
 
 import '../../../constants/app_colors.dart';
+import '../../../screens/lineup_list.dart';
 
 class WeaponInfo extends StatelessWidget {
   WeaponInfo({Key? key, required this.weapon}) : super(key: key);
@@ -28,9 +30,33 @@ class WeaponInfo extends StatelessWidget {
             children: [
               // For top padding
               SizedBox(height: 20.h),
-
               // Weapon Image
-              CachedNetworkImage(height: 100.h, imageUrl: weapon.displayIcon!),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    CachedNetworkImage(
+                        height: 100.h, imageUrl: weapon.displayIcon!),
+                    ...?weapon.skins?.map((e) => GestureDetector(
+                        onTap:  () {
+                          if (e.levels != null && e.levels!.isNotEmpty) {
+                            final lastLevel = e.levels!.last;
+                            if (lastLevel.streamedVideo != null) {
+                              showDialog(
+                                context: context,
+                                builder: (context) => PlayVideo(url: lastLevel.streamedVideo!),
+                              );
+                            }
+                          }
+                        } ,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                          child: CachedNetworkImage(
+                              height: 100.h, imageUrl: e.displayIcon ?? e.levels![0].displayIcon!),
+                        )))
+                  ],
+                ),
+              ),
 
               // Weapon name and price section
               Padding(
@@ -61,7 +87,7 @@ class WeaponInfo extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10)),
                         alignment: Alignment.center,
                         child: Text(
-                          '${weapon.shopData!.cost}',
+                          '${weapon.shopData?.cost ?? ""}',
                           style: TextStyle(color: white, fontSize: 17.sp),
                         )),
                   ],

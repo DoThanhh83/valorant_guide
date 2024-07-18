@@ -25,7 +25,7 @@ class WeaponsList extends StatelessWidget {
               addRepaintBoundaries: false,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2),
-              itemCount: snapshot.data!.length - 1,
+              itemCount: snapshot.data!.length ,
               itemBuilder: (context, index) {
                 var data = snapshot.data!.toList();
                 return WeaponCard(weapon: data[index]);

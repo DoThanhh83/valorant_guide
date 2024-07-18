@@ -1,22 +1,21 @@
-// ignore_for_file: avoid_print
 
 import 'package:dio/dio.dart';
-import 'package:valoratn_gui/models/playercard.dart';
+import 'package:valoratn_gui/models/skins.dart';
 import 'package:valoratn_gui/network/api_client.dart';
 
-
-class PlayerCardClient extends ApiClient {
-  // Get Agents
-  Future<Iterable<PlayerCard>> getPlayerCard() async {
-    Iterable<PlayerCard> agents = [];
+class SkinsClient extends ApiClient {
+  // Get Ranks
+  Future<Iterable<Skins>> getSkins() async {
+    Iterable<Skins> Skinss = [];
     try {
       // Get response
-      Response response = await super.dio.get("${super.baseUrl}v1/playercards");
+      Response response =
+      await super.dio.get("${super.baseUrl}v1/weapons/skinlevels/");
 
-      // Parsed list bunu mapleyip her ajani tek tek agents listesine atiyoruz
+      // Parsed list bunu mapleyip her ranki tek tek ranks listesine atiyoruz
       List parsedList = response.data['data'];
-      agents = parsedList.map((element) {
-        return PlayerCard.fromJson(element);
+      Skinss = parsedList.map((element) {
+        return Skins.fromJson(element);
       });
     } on DioError catch (e) {
       if (e.response != null) {
@@ -29,6 +28,6 @@ class PlayerCardClient extends ApiClient {
         print(e.message);
       }
     }
-    return agents;
+    return Skinss;
   }
 }
